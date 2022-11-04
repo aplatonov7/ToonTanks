@@ -18,10 +18,15 @@ public:
 	// Sets default values for this pawn's properties
 	ATank();
 
+	// Called to bind functionality to input
+	virtual void SetupPlayerInputComponent(class UInputComponent* PlayerInputComponent) override;
+
 private:
 	UPROPERTY(VisibleAnywhere, Category = "Tank Components")
 	class USpringArmComponent* SpringArmComp;
 	
 	UPROPERTY(VisibleAnywhere, Category = "Tank Components")
 	class UCameraComponent* CameraComp;
+
+	void Move(float Value);
 };

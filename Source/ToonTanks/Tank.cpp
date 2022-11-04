@@ -20,3 +20,16 @@ ATank::ATank()
 		TEXT("Camera"));
 	CameraComp->SetupAttachment(SpringArmComp);
 }
+
+// Called to bind functionality to input
+void ATank::SetupPlayerInputComponent(UInputComponent* PlayerInputComponent)
+{
+	Super::SetupPlayerInputComponent(PlayerInputComponent);
+
+	PlayerInputComponent->BindAxis(TEXT("MoveForward"), this, &ATank::Move);
+}
+
+void ATank::Move(float Value)
+{
+	AddActorLocalOffset(FVector(Value, 0, 0));
+}
