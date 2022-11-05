@@ -27,10 +27,13 @@ private:
 	class UProjectileMovementComponent* MovementComponent;
 
 	UPROPERTY(VisibleAnywhere, Category = "Movement")
-	float InitialSpeed = 2000;
+	float InitialSpeed = 2000.f;
 
 	UPROPERTY(VisibleAnywhere, Category = "Movement")
-	float MaxSpeed = 4000;
+	float MaxSpeed = 4000.f;
+
+	UPROPERTY(VisibleAnywhere, Category = "Combat")
+	float Damage = 50.f;
 
 	UFUNCTION()
 	void OnHit(
