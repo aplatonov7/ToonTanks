@@ -23,6 +23,14 @@ protected:
 private:
 	class ATank* Tank;
 
-	UPROPERTY(EditAnywhere, Category = "Turret Fire")
+	UPROPERTY(EditDefaultsOnly, Category = "Tower Combat")
 	float FireRange = 800;
+
+	UPROPERTY(EditDefaultsOnly, Category = "Tower Combat")
+	float FireRate = 2;
+	
+	FTimerHandle FireRateTimerHandle;
+
+	bool IsTankInFireRange() const;
+	void CheckFireCondition();
 };
