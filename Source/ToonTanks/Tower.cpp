@@ -45,10 +45,8 @@ bool ATower::IsTankInFireRange() const
 
 void ATower::CheckFireCondition()
 {
-	UE_LOG(LogTemp, Display, TEXT("cHECKING"));
 	if (IsTankInFireRange())
 	{
-		UE_LOG(LogTemp, Display, TEXT("FIIIIREEEE"));
 		Fire();
 	}
 }
