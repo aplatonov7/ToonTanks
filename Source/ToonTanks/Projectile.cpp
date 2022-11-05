@@ -3,6 +3,8 @@
 
 #include "Projectile.h"
 
+#include "GameFramework/ProjectileMovementComponent.h"
+
 // Sets default values
 AProjectile::AProjectile()
 {
@@ -10,6 +12,10 @@ AProjectile::AProjectile()
 
 	ProjectileMesh = CreateDefaultSubobject<UStaticMeshComponent>(TEXT("Projectile Mesh"));
 	RootComponent = ProjectileMesh;
+
+	MovementComponent = CreateDefaultSubobject<UProjectileMovementComponent>(TEXT("Projectile Movement Component"));
+	MovementComponent->InitialSpeed = InitialSpeed;
+	MovementComponent->MaxSpeed = MaxSpeed;
 }
 
 // Called when the game starts or when spawned

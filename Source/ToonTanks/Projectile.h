@@ -22,4 +22,13 @@ protected:
 private:
 	UPROPERTY(EditDefaultsOnly, Category = "Combat")
 	UStaticMeshComponent* ProjectileMesh;
+
+	UPROPERTY(VisibleAnywhere, Category = "Movement")
+	class UProjectileMovementComponent* MovementComponent;
+
+	UPROPERTY(VisibleAnywhere, Category = "Movement")
+	float InitialSpeed = 2000;
+
+	UPROPERTY(VisibleAnywhere, Category = "Movement")
+	float MaxSpeed = 4000;
 };
