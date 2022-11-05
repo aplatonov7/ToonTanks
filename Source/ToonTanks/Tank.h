@@ -31,5 +31,9 @@ private:
 	UPROPERTY(EditAnywhere, Category = "Tank Movement")
 	float Speed = 300;
 
+	UPROPERTY(EditAnywhere, Category = "Tank Movement")
+	float TurnSpeed = 300;
+
 	void Move(float Value);
+	void Turn(float Value);
 };
