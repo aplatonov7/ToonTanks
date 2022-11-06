@@ -50,6 +50,12 @@ void ABasePawn::HandleDestruction()
 			GetActorLocation(),
 			GetActorRotation());
 	}
+
+	if (DeathCameraShakeClass)
+	{
+		GetWorld()->GetFirstPlayerController()->ClientStartCameraShake(
+			DeathCameraShakeClass);
+	}
 }
 
 void ABasePawn::RotateTurret(const FVector LookAtTarget)

@@ -58,7 +58,13 @@ void AProjectile::OnHit(UPrimitiveComponent* HitComp, AActor* OtherActor, UPrimi
 			Damage,
 			ProjectileOwner->GetInstigatorController(),
 			this,
-			UDamageType::StaticClass());	
+			UDamageType::StaticClass());
+
+		if (HitCameraShakeClass)
+		{
+			GetWorld()->GetFirstPlayerController()->ClientStartCameraShake(
+				HitCameraShakeClass);
+		}
 	}
 
 	if (HitParticles)
