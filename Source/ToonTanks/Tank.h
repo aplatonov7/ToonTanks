@@ -26,6 +26,10 @@ public:
 
 	// Called every frame
 	virtual void Tick(float DeltaTime) override;
+
+	void HandleDestruction() override;
+
+	APlayerController* GetTankPlayerController() const;
 	
 private:
 	UPROPERTY(VisibleAnywhere, Category = "Tank Components")
@@ -43,5 +47,5 @@ private:
 	void Move(float Value);
 	void Turn(float Value);
 
-	APlayerController* PlayerControllerRef;
+	APlayerController* TankPlayerController;
 };

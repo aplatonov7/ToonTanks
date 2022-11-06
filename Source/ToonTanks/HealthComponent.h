@@ -36,4 +36,6 @@ private:
 		const UDamageType* DamageType,
 		class AController* Instigator,
 		AActor* DamageCauser);
+
+	class AToonTanksGameMode* ToonTanksGameMode;
 };

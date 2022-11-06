@@ -27,7 +27,7 @@ void ATank::BeginPlay()
 {
 	Super::BeginPlay();
 
-	PlayerControllerRef = Cast<APlayerController>(GetController());
+	TankPlayerController = Cast<APlayerController>(GetController());
 }
 
 // Called every frame
@@ -37,7 +37,7 @@ void ATank::Tick(const float DeltaTime)
 
 	FHitResult HitResult;
 
-	bool Hit = PlayerControllerRef->GetHitResultUnderCursor(
+	bool Hit = TankPlayerController->GetHitResultUnderCursor(
 		ECollisionChannel::ECC_Visibility,
 		false,
 		HitResult);
@@ -46,6 +46,19 @@ void ATank::Tick(const float DeltaTime)
 	{
 		RotateTurret(HitResult.ImpactPoint);
 	}
+}
+
+void ATank::HandleDestruction()
+{
+	Super::HandleDestruction();
+
+	SetActorHiddenInGame(true);
+	SetActorTickEnabled(false);
+}
+
+APlayerController* ATank::GetTankPlayerController() const
+{
+	return TankPlayerController;
 }
 
 // Called to bind functionality to input
