@@ -33,11 +33,14 @@ ABasePawn::ABasePawn()
 
 void ABasePawn::HandleDestruction()
 {
-	UGameplayStatics::SpawnEmitterAtLocation(
+	if (DeathParticle)
+	{
+		UGameplayStatics::SpawnEmitterAtLocation(
 		this,
 		DeathParticle,
 		GetActorLocation(),
 		GetActorRotation());
+	}
 }
 
 void ABasePawn::RotateTurret(const FVector LookAtTarget)
