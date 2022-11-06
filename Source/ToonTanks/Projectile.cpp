@@ -5,18 +5,25 @@
 
 #include "GameFramework/ProjectileMovementComponent.h"
 #include "Kismet/GameplayStatics.h"
+#include "Particles/ParticleSystemComponent.h"
 
 // Sets default values
 AProjectile::AProjectile()
 {
 	PrimaryActorTick.bCanEverTick = false;
 
-	ProjectileMesh = CreateDefaultSubobject<UStaticMeshComponent>(TEXT("Projectile Mesh"));
+	ProjectileMesh = CreateDefaultSubobject<UStaticMeshComponent>(
+		TEXT("Projectile Mesh"));
 	RootComponent = ProjectileMesh;
 
-	MovementComponent = CreateDefaultSubobject<UProjectileMovementComponent>(TEXT("Projectile Movement Component"));
+	MovementComponent = CreateDefaultSubobject<UProjectileMovementComponent>(
+		TEXT("Projectile Movement Component"));
 	MovementComponent->InitialSpeed = InitialSpeed;
 	MovementComponent->MaxSpeed = MaxSpeed;
+
+	TrailParticleComp = CreateDefaultSubobject<UParticleSystemComponent>(
+		TEXT("Trail Particle Component"));
+	TrailParticleComp->SetupAttachment(RootComponent);
 }
 
 // Called when the game starts or when spawned
