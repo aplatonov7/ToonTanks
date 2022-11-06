@@ -40,7 +40,7 @@ void ATower::BeginPlay()
 
 bool ATower::IsTankInFireRange() const
 {
-	if (Tank == nullptr)
+	if (Tank == nullptr || !Tank->bAlive)
 	{
 		return false;
 	}

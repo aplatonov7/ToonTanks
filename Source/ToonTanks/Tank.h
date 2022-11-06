@@ -30,6 +30,8 @@ public:
 	void HandleDestruction() override;
 
 	APlayerController* GetTankPlayerController() const;
+
+	bool bAlive = true;
 	
 private:
 	UPROPERTY(VisibleAnywhere, Category = "Tank Components")
